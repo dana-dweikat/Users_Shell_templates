@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add users</title>
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}" />
+  </head>
+  <body>
+    <div class="container text-center mt-5">
+      <h3 class="text-center mt-3">All the Users:</h3>
+
+      <table class="table table-striped">
+        <tr>
+          <td>ID</td>
+          <td>Name</td>
+          <td>Email</td>
+          <td>Age</td>
+        </tr>
+
+        {% for user in latest_row %}
+        <tr>
+          <td>{{user.id}}</td>
+          <td>{{user.first_name}} {{user.last_name}}</td>
+          <td>{{user.email_address}}</td>
+          <td>{{user.age}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    
+
+      <hr />
+
+      <h3 class="text-center mt-3">Add a User:</h3>
+      <form action="{% url 'home' %}" method="POST">
+        {% csrf_token %}
+
+        {{form.as_p}}
+
+        <!-- <div class="row mb-3">
+            <label for="first_name" class="col-sm-2 col-form-label">first_name:</label>
+            <div class="col-sm-4">
+              <input required type="text" name="first_name"  placeholder="first_name" class="form-control" id="first_name">
+            </div>
+            </div> -->
+
+        <!-- <div class="row mb-3">
+            <label for="last_name" class="col-sm-2 col-form-label">last_name:</label>
+            <div class="col-sm-4">
+              <input required type="text" name="last_name"  placeholder="last_name" class="form-control" id="last_name">
+            </div>
+          </div> -->
+
+        <!-- <div class="row mb-3">
+            <label for="age" class="col-sm-2 col-form-label">your_age:</label>
+            <div class="col-sm-4">
+              <input required type="number" name="age"  placeholder="age" class="form-control" id="your_age">
+            </div>
+          </div> -->
+
+        <!-- <div class="row mb-3">
+          <label for="email" class="col-sm-2 col-form-label">your_email:</label>
+          <div class="col-sm-4">
+            <input
+              required
+              type="text"
+              name="email_address"
+              placeholder="email"
+              class="form-control"
+              id="your_email"
+            />
+          </div>
+        </div> -->
+        <button type="submit" class="btn btn-success m-5">Add</button>
+      </form>
+    </div>
+
+    <script src="{% static 'bootstrap.bundle.min.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+Query :
+Users.objects.create(first_name="dana",last_name="dweikat",email_address="dqjwdqdk@.gmail",age=20)
+Users.objects.create(first_name="basa",last_name="SOSO",email_address="dqjwhsqk@.gmail",age=22)
+Users.objects.create(first_name="dodo",last_name="SMSMS",email_address="dqjNXSMNXQWIJdk@.gmail",age=23)
+Query :
+Users.objects.all()
+Query : 
+Users.objects.last()
+Query :
+Users.objects.first()
+Query :
+user = Users.objects.get(id=3)
+user.last_name = "PanCakes"
+user.save()
+Query :
+Users.objects.get(id=2).delete()
+Query :
+Users.objects.all().order_by("first_name")
+Query :
+Users.objects.all().order_by("-first_name")
